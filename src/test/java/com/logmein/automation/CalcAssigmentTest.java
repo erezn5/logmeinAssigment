@@ -11,7 +11,7 @@ import ui.model.pages.WebCalculatorPage;
 import java.util.List;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class ExampleTest extends WatchmanTest {
+public class CalcAssigmentTest extends WatchmanTest {
      WebCalculatorPage webCalculatorPage;
      ArithmeticOperations arithmeticOperations;
      NumbersButtons numbersButtons;
