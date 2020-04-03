@@ -1,5 +1,17 @@
 {
-  "login_page_username_field": {"value": "input[name='username']","type": "css"},
-  "login_page_password_field": {"value": "input[name='password']","type": "css"},
-  "login_page_submit_button": {"value": "FormsButton2", "type": "name"}
+
+  "calc_page_login_button": {"value": "div[class='container'] button[id='loginbtn']", "type": "css"},
+
+  "history_dropDown_menu_button": {"value": "button[class='btn dropdown-toggle pull-right']", "type": "css"},
+  "history_dropDown_menu_clear_history": {"value": "a[id='clearhistory']", "type": "css"},
+  "history_dropDown_menu_close_button": {"value": "button[class='close']", "type": "css"},
+
+  "arithmetic_add_action_button": {"value": "div[id='calccontainer'] button[id='BtnPlus']","type": "css"},
+  "arithmetic_subtract_action_button": {"value": "div[id='calccontainer'] button[id='BtnMinus']","type": "css"},
+  "arithmetic_sinos_action_button": {"value": "div[id='calccontainer'] button[id='BtnSin']","type": "css"},
+  "arithmetic_clear_operation_button": {"value": "div[id='calccontainer'] button[id='BtnClear']","type": "css"},
+  "arithmetic_result_operation_button": {"value": "div[id='calccontainer'] button[id='BtnCalc']","type": "css"}
+
+
+
 }

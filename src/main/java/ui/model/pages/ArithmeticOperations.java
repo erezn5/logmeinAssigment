@@ -1,19 +1,16 @@
 package ui.model.pages;
 
+import com.logmein.automation.Locators;
 import com.logmein.automation.selenium.DriverWrapper;
 import org.openqa.selenium.By;
 import ui.model.PageElement;
 
 public class ArithmeticOperations extends PageElement {
-    private static final By divOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnDiv']");
-    private static final By plusOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnPlus']");
-    private static final By subOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnMinus']");
-    private static final By multipleOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnMult']");
-    private static final By sinOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnSin']");
-    private static final By leftBracketsOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnParanL']");
-    private static final By rightBracketOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnParanR']");
-    private static final By clearOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnClear']");
-    private static final By calcResultOpBy = By.cssSelector("div[id='calccontainer'] button[id='BtnCalc']");
+    private static final By plusOpBy = Locators.findBy("arithmetic_add_action_button");
+    private static final By subOpBy = Locators.findBy("arithmetic_subtract_action_button");
+    private static final By sinOpBy = Locators.findBy("arithmetic_sinos_action_button");
+    private static final By clearOpBy = Locators.findBy("arithmetic_clear_operation_button");
+    private static final By calcResultOpBy = Locators.findBy("arithmetic_result_operation_button");
 
     private static final By resultOpBy = By.cssSelector("div[id='histframe'] p[title]");
     HistoryDropDownHandler historyDropDownHandler;
@@ -33,14 +30,6 @@ public class ArithmeticOperations extends PageElement {
 
     public void sinos(){
         clickButton(sinOpBy);
-    }
-
-    public void setLeftBracketsOpBy(){
-        clickButton(leftBracketsOpBy);
-    }
-
-    public void setRightBracketOpBy(){
-        clickButton(rightBracketOpBy);
     }
 
     public void clickResult(){
