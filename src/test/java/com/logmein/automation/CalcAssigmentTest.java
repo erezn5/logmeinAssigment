@@ -1,16 +1,14 @@
 package com.logmein.automation;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.WebElement;
-import ui.model.pages.ArithmeticOperations;
-import ui.model.pages.HistoryDropDownHandler;
-import ui.model.pages.NumbersButtons;
 import ui.model.pages.WebCalculatorPage;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CalcAssigmentTest extends WatchmanTest {
