@@ -21,26 +21,24 @@ public class WebCalculatorPage extends BasePage {
         historyDropDownHandler = new HistoryDropDownHandler(driver);
     }
 
+    private void quringStringList(List<String>buttonList){
+        for(String num : buttonList){
+            numbersButtons.clickNumberButton(num);
+        }
+    }
 
     public void addNumbers(List<String> numList1, List<String> numList2) {
-        for(String num :numList1) {
-            numbersButtons.clickNumberButton(num);
-        }
+        quringStringList(numList1);
         arithmeticOperations.add();
-        for(String num : numList2) {
-            numbersButtons.clickNumberButton(num);
-        }
+        quringStringList(numList2);
         arithmeticOperations.clickResult();
     }
 
     public void subtractNumbers(List<String> numList1, List<String> numList2) {
-        for(String num :numList1) {
-            numbersButtons.clickNumberButton(num);
-        }
+        quringStringList(numList1);
         arithmeticOperations.subtract();
-        for(String num : numList2) {
-            numbersButtons.clickNumberButton(num);
-        }
+
+        quringStringList(numList2);
         arithmeticOperations.clickResult();
     }
 
@@ -50,10 +48,16 @@ public class WebCalculatorPage extends BasePage {
     }
 
     public void sinosOperation(List<String> list) {
-        for(String num : list) {
-            numbersButtons.clickNumberButton(num);
-        }
+        quringStringList(list);
         arithmeticOperations.sinos();
         arithmeticOperations.clickResult();
+    }
+
+    public List<String> getDropDownHistoryItems() {
+        return historyDropDownHandler.getDropDownHistoryItems();
+    }
+
+    public void clearCalculationsHistory() {
+        historyDropDownHandler.clearCalculationsHistory();
     }
 }

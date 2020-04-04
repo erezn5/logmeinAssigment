@@ -8,6 +8,7 @@ import org.awaitility.core.Condition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -31,6 +32,13 @@ public class PageElement {
         printClick(bthElm);
     }
 
+    public List<WebElement> getListElements(WebElement historyULElm) {
+        return historyULElm.findElements(By.tagName("li"));
+    }
+
+    public void acceptPopUpWindow(){
+        driver.switchTo().alert().accept();
+    }
     private void printClick(WebElement elementBth){
         LOG.i("click on '%s' button" , elementBth);
     }
@@ -43,10 +51,6 @@ public class PageElement {
 
     private void printClickableElm(By by){
         LOG.i("locator=[%s] is clickable" , by.toString());
-    }
-
-    public void printElements(List<WebElement> elements) {
-        LOG.i("elements [%s]", getElementsText(elements));
     }
 
     protected void clickIfVisible(By bthBy){
@@ -69,17 +73,6 @@ public class PageElement {
         boolean visible = driver.isVisible(by, duration);
         printElmVisibility(by , visible);
         return visible;
-    }
-
-    private String getElementsText(List<WebElement> elements){
-        final StringBuffer sb = new StringBuffer();
-        if(elements != null){
-            elements.forEach(elm -> sb.append(elm.getText()));
-            if(sb.length() > 0){
-                sb.deleteCharAt(sb.length()-1);
-            }
-        }
-        return sb.toString();
     }
 
     protected void clickButtonRetry(final By bthBy){

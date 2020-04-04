@@ -5,14 +5,20 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.openqa.selenium.WebElement;
 import ui.model.pages.WebCalculatorPage;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+
+import static com.logmein.automation.logger.LoggerFactory.LOG;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CalcAssigmentTest extends WatchmanTest {
      WebCalculatorPage webCalculatorPage;
+     List<String>expectedFormulasList = Arrays.asList("sin(30)= 0.5", "10-2= 8", "2+3= 5");
 
     @Before
     public void setup() {
@@ -42,14 +48,24 @@ public class CalcAssigmentTest extends WatchmanTest {
         Assert.assertEquals("0.5", webCalculatorPage.getResult());
     }
 
-//    @Test
-//    public void testEgetHistoryListAndVerify(){
-//        List<WebElement> listElms = historyDropDownHandler.getDropDownHistoryItems();
-//        Assert.assertEquals(3, listElms.size());
-//    }
+    @Test
+    public void testEgetHistoryListAndVerify(){
+        Assert.assertTrue(list(webCalculatorPage.getDropDownHistoryItems()));
+    }
 
-//    @Test
-//    public void testFTearDown(){
-//        historyDropDownHandler.clearCalculationsHistory();
-//    }
+    @Test
+    public void testFTearDown(){
+        webCalculatorPage.clearCalculationsHistory();
+    }
+
+    public boolean list(List<String>elements){
+        List<String> results = new ArrayList<>();
+        for(String str : elements){
+            StringBuilder stringBuilder = new StringBuilder();
+            String data = str.split("\n")[1].trim();
+            String result = str.split("\n")[0].trim();
+            results.add(stringBuilder.append(data).append(result).toString());
+        }
+        return results.equals(expectedFormulasList);
+    }
 }

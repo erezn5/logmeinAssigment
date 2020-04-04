@@ -1,6 +1,7 @@
 {
 
   "calc_page_login_button": {"value": "div[class='container'] button[id='loginbtn']", "type": "css"},
+  "calc_page_history_container_by": {"value": "div[id='histframe'] ul", "type": "css"},
 
   "history_dropDown_menu_button": {"value": "button[class='btn dropdown-toggle pull-right']", "type": "css"},
   "history_dropDown_menu_clear_history": {"value": "a[id='clearhistory']", "type": "css"},
